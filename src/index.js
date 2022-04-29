@@ -1,18 +1,8 @@
-import Scanner from './Scanner.js';
+import parseTemplateToToken from './parseTemplateToToken'
 
 window.templateEngine = {
     render (templateStr) {
-        let scanner = new Scanner(templateStr)
-        let word
-
-        while (!scanner.eos()) {
-            word = scanner.scanUtil('{{')
-            console.log(word, scanner.pos)
-            scanner.scan('{{')
-
-            word = scanner.scanUtil('}}')
-            console.log(word)
-            scanner.scan('}}')
-        }
+        let tokens = parseTemplateToToken(templateStr)
+        console.log('tokens', tokens)
     }
 }
