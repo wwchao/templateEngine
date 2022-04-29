@@ -13,7 +13,7 @@ export default function (tokens) {
                 collector = token[2] = []
                 break;
             case '/':
-                let section_pop = sections.pop()
+                sections.pop()
                 collector = sections.length > 0 ? sections[sections.length - 1][2] : nestedTokens
                 break;
             default:

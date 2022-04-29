@@ -1,5 +1,17 @@
 import Scanner from './Scanner.js';
 import nestTokens from './nestTokens.js';
+import lookup from './lookup.js';
+console.log(lookup({
+    a: {
+        b: {
+            c: {
+                d: {
+                    w: 123
+                }
+            }
+        }
+    }
+}, 'a.b.c.d.w'))
 
 export default function (templateStr) {
     let scanner = new Scanner(templateStr)
@@ -23,6 +35,5 @@ export default function (templateStr) {
         }
         scanner.scan('}}')
     }
-    console.log(token)
     return nestTokens(token)
 }
